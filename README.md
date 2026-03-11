@@ -1,6 +1,6 @@
 # Dad's Corner – dadscorner.net
 
-A modern static website replacing the previous GoDaddy-hosted www.dadscorner.net.
+A modern static website for dadscorner.net, hosted on GitHub Pages (or Netlify) — no GoDaddy required.
 
 ## Project Structure
 
@@ -9,11 +9,17 @@ dads-corner-net/
 ├── index.html        # Home page
 ├── about.html        # About page
 ├── contact.html      # Contact page
+├── 404.html          # Custom 404 page
+├── CNAME             # Custom domain for GitHub Pages (dadscorner.net)
+├── netlify.toml      # Netlify deployment configuration
 ├── css/
 │   └── styles.css    # All styles (responsive, mobile-first)
 ├── js/
 │   └── main.js       # Mobile nav, form handling, scroll effects
-└── images/           # Place any site images here
+├── images/           # Place any site images here
+└── .github/
+    └── workflows/
+        └── deploy.yml  # GitHub Actions – auto-deploy to GitHub Pages
 ```
 
 ## Developing Locally
@@ -21,42 +27,71 @@ dads-corner-net/
 No build step required – it's plain HTML, CSS, and JavaScript.
 
 ```bash
-# Open in your browser directly, or use any static server:
+# Use any static server, e.g.:
 npx serve .
 # Then open http://localhost:3000
 ```
 
-## Deploying
+## Deploying (moving away from GoDaddy)
 
-### GitHub Pages
+### Option 1 – GitHub Pages (free, built into GitHub) ✅ recommended
 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages**.
-3. Set **Source** to the `main` branch and `/ (root)`.
-4. Your site will be live at `https://<username>.github.io/<repo>/`.
+GitHub Pages is the simplest option since the code is already on GitHub.
 
-### GoDaddy / cPanel File Manager
+**One-time setup:**
 
-1. Zip the repository contents (not the folder, just the files inside).
-2. Log in to GoDaddy → **cPanel → File Manager**.
-3. Navigate to `public_html`.
-4. Upload and extract the zip.
-5. The site will be live at your domain.
+1. Go to your repository on GitHub.
+2. Click **Settings → Pages**.
+3. Under **Source**, select **GitHub Actions**.
+4. That's it – the `deploy.yml` workflow will publish the site automatically on every push to `main`.
 
-### Netlify / Vercel (recommended)
+**Custom domain (`dadscorner.net`):**
 
-1. Connect your GitHub repository.
-2. Set the **publish directory** to `.` (root).
-3. No build command required.
-4. Add your custom domain `dadscorner.net` in the site settings.
+The `CNAME` file already contains `dadscorner.net`. You only need to update your DNS:
+
+| Type  | Host  | Value                        |
+|-------|-------|------------------------------|
+| A     | @     | 185.199.108.153              |
+| A     | @     | 185.199.109.153              |
+| A     | @     | 185.199.110.153              |
+| A     | @     | 185.199.111.153              |
+| CNAME | www   | mfcoburn.github.io.          |
+
+After DNS propagates (up to 48 hours), GitHub Pages will automatically provision an HTTPS certificate.
+
+> **Note:** If you registered your domain at GoDaddy, you only need to update the DNS records above — you do **not** need to transfer the domain itself to move the website hosting.
+
+---
+
+### Option 2 – Netlify (free, zero-config, form support)
+
+Netlify is a great alternative with a generous free tier and built-in form handling.
+
+**One-time setup:**
+
+1. Log in at <https://app.netlify.com> → **Add new site → Import an existing project**.
+2. Connect the **mfcoburn/dads-corner-net** GitHub repository.
+3. Leave **Build command** blank and set **Publish directory** to `.`
+4. Click **Deploy site** – `netlify.toml` is picked up automatically.
+5. Add your custom domain under **Site settings → Domain management**.
+
+**DNS for Netlify custom domain:**
+
+| Type  | Host | Value                              |
+|-------|------|------------------------------------|
+| CNAME | www  | `<your-netlify-site>.netlify.app.` |
+| A     | @    | 75.2.60.5 *(Netlify load balancer)*|
+
+Netlify also provisions HTTPS automatically.
+
+---
 
 ## Contact Form
 
-The contact form (`contact.html`) uses client-side JavaScript for validation and simulates submission. To wire it up to a real backend:
+The contact form in `contact.html` uses **Netlify Forms** when hosted on Netlify — no backend or third-party service needed.
 
-- **Formspree**: Replace the `form` action with your Formspree endpoint.
-- **Netlify Forms**: Add `netlify` attribute to the `<form>` tag when deploying on Netlify.
-- **EmailJS**: Integrate the EmailJS SDK for fully client-side email sending.
+- On **Netlify**: form submissions are captured automatically (free up to 100/month). View them in the Netlify dashboard under **Forms**.
+- On **GitHub Pages**: a simulated success message is shown. To enable real submissions on GitHub Pages, sign up for [Formspree](https://formspree.io) and add your endpoint as the form `action`.
 
 ## License
 

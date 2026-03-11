@@ -56,7 +56,7 @@
       const success = document.getElementById('form-success');
       const originalText = btn.textContent;
 
-      // Simple client-side validation
+      // Client-side validation: highlight empty required fields
       let valid = true;
       form.querySelectorAll('[required]').forEach(function (field) {
         if (!field.value.trim()) {
@@ -69,7 +69,7 @@
 
       if (!valid) return;
 
-      // Validate email
+      // Validate email format
       const emailField = form.querySelector('[type="email"]');
       if (emailField && emailField.value.trim()) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -79,19 +79,55 @@
         }
       }
 
-      // Simulate submission (replace with real backend / Formspree endpoint)
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
-      setTimeout(function () {
+      function showSuccess() {
         form.reset();
         btn.textContent = originalText;
         btn.disabled = false;
         if (success) {
           success.style.display = 'block';
-          setTimeout(function () { success.style.display = 'none'; }, 5000);
+          setTimeout(function () { success.style.display = 'none'; }, 6000);
         }
-      }, 1000);
+      }
+
+      function showError(msg) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        var err = document.getElementById('form-error');
+        if (!err) {
+          err = document.createElement('p');
+          err.id = 'form-error';
+          err.setAttribute('role', 'alert');
+          err.style.cssText = 'color:#e53e3e;margin-top:.75rem;font-size:.9rem;';
+          form.appendChild(err);
+        }
+        err.textContent = msg || 'Something went wrong. Please try again.';
+      }
+
+      // Use Netlify Forms AJAX submission when the form has data-netlify attribute.
+      // Falls back to a simulated success on plain static hosts (e.g. GitHub Pages).
+      if (form.getAttribute('data-netlify') === 'true') {
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        })
+          .then(function (res) {
+            if (res.ok) {
+              showSuccess();
+            } else {
+              showError('Submission failed (status ' + res.status + '). Please try again.');
+            }
+          })
+          .catch(function () {
+            showError('Could not reach the server. Please check your connection and try again.');
+          });
+      } else {
+        // Static host fallback – show success after a brief delay
+        setTimeout(showSuccess, 800);
+      }
     });
   }
 
