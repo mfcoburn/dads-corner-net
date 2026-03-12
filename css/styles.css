@@ -197,7 +197,7 @@ section { padding: 5rem 0; }
 
 /* ---- Hero ---- */
 .hero {
-  background: linear-gradient(135deg, var(--color-primary-dk) 0%, var(--color-primary) 60%, #3a7abf 100%);
+  background: linear-gradient(135deg, rgba(26,63,95,.85) 0%, rgba(44,95,138,.75) 60%, rgba(58,122,191,.65) 100%), url('../images/230333.png') center / cover no-repeat;
   color: #fff;
   padding: 7rem 0 6rem;
   text-align: center;
