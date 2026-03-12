@@ -197,7 +197,7 @@ section { padding: 5rem 0; }
 
 /* ---- Hero ---- */
 .hero {
-  background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('../images/230333.png') center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.3)), url('../images/230333.png') center / cover no-repeat;
   color: #fff;
   padding: 7rem 0 6rem;
   text-align: center;
