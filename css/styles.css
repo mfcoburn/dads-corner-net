@@ -137,9 +137,16 @@ section { padding: 5rem 0; }
   font-weight: bold;
   color: #fff;
   letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
 }
 
 .site-logo span { color: var(--color-accent-lt); }
+
+.site-logo svg { flex-shrink: 0; }
+
+.footer-brand .site-logo svg { width: 28px; height: 28px; }
 
 .nav-links {
   display: flex;
