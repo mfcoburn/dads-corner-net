@@ -1,0 +1,53 @@
+# Netlify configuration for dadscorner.net
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+#
+# One-time setup:
+#   1. Log in at https://app.netlify.com → "Add new site" → "Import an existing project"
+#   2. Connect the GitHub repository (mfcoburn/dads-corner-net)
+#   3. Leave "Build command" blank and set "Publish directory" to "."
+#   4. Deploy – Netlify picks up this file automatically.
+#   5. Add your custom domain under Site settings → Domain management.
+
+[build]
+  # Static site – no build command needed
+  publish = "."
+
+# ── Headers ────────────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "geolocation=(), camera=(), microphone=()"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Redirects ──────────────────────────────────────────────────────────────────
+
+# Enforce non-www → www (or flip to www → non-www; adjust to match DNS)
+[[redirects]]
+  from   = "https://dadscorner.net/*"
+  to     = "https://www.dadscorner.net/:splat"
+  status = 301
+  force  = true
+
+# Redirect old GoDaddy-style index page if it existed
+[[redirects]]
+  from   = "/index.php"
+  to     = "/"
+  status = 301
+
+# Pretty 404
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404

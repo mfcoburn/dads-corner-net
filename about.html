@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn more about the person behind Dad's Corner – a dad, hobbyist, and storyteller." />
+  <title>About – Dad's Corner</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="index.html" class="site-logo">Dad's <span>Corner</span></a>
+        <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main">
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="container">
+        <h1>About Me</h1>
+        <p>The person behind Dad's Corner</p>
+      </div>
+    </div>
+
+    <!-- About Content -->
+    <section class="about-full" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-full-grid">
+
+          <div class="about-content">
+            <h2 class="section-title" id="about-heading">Hi there!</h2>
+
+            <h2>Who Am I?</h2>
+            <p>Welcome to Dad's Corner – a small slice of the internet that's been mine for a while now. I'm a husband, a father, a weekend tinkerer, and someone who genuinely enjoys sharing what I've learned (and what's gone wrong).</p>
+            <p>This site started as a place to keep notes for myself and grew into something I'm proud to share with others. If any of it is useful to you – great. If it just makes you smile – even better.</p>
+
+            <h2>What I Do</h2>
+            <p>By day I work in technology. By evenings and weekends I'm usually:</p>
+            <ul>
+              <li>Working on something in the garage or the backyard</li>
+              <li>Trying to teach my kids something useful (or learning something from them)</li>
+              <li>Cooking something that may or may not have followed a recipe</li>
+              <li>Fishing, hiking, or otherwise being outside whenever possible</li>
+            </ul>
+
+            <h2>Why Dad's Corner?</h2>
+            <p>Because every dad needs a corner. A place to put your tools, your thoughts, and your half-finished projects. This is mine – except it lives on the internet.</p>
+            <p>I've been running some version of this site for years. It's changed a lot over time, and it keeps evolving. I hope you enjoy what you find here.</p>
+
+            <a href="contact.html" class="btn" style="background:var(--color-primary);color:#fff;border-color:var(--color-primary);margin-top:1rem;">Get in Touch</a>
+          </div>
+
+          <div class="about-sidebar">
+            <div class="card">
+              <span class="card-icon" aria-hidden="true">🛠️</span>
+              <h3>Hobbies</h3>
+              <p>Woodworking, home improvement, gardening, fishing, cooking, and amateur electronics.</p>
+            </div>
+            <div class="card">
+              <span class="card-icon" aria-hidden="true">📍</span>
+              <h3>Location</h3>
+              <p>Based in the United States. Love the outdoors and the changing seasons.</p>
+            </div>
+            <div class="card">
+              <span class="card-icon" aria-hidden="true">✍️</span>
+              <h3>Writing Since</h3>
+              <p>This site has been online for many years and continues to grow with every new project.</p>
+            </div>
+            <div class="card">
+              <span class="card-icon" aria-hidden="true">📬</span>
+              <h3>Get in Touch</h3>
+              <p>Have a question or just want to say hi? Use the <a href="contact.html">contact page</a> — I'd love to hear from you.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">Dad's <span>Corner</span></a>
+          <p>A personal site about family, projects, and the everyday adventures of being a dad. Thanks for stopping by.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="#">Projects &amp; DIY</a></li>
+            <li><a href="#">Stories &amp; Memories</a></li>
+            <li><a href="#">Tips &amp; Advice</a></li>
+            <li><a href="#">Outdoors</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year">2026</span> Dad's Corner · <a href="https://www.dadscorner.net">dadscorner.net</a></p>
+        <p>Built with ♥ and too much coffee</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Page not found – Dad's Corner" />
+  <title>404 – Page Not Found · Dad's Corner</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .not-found {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .not-found-emoji { font-size: 5rem; margin-bottom: 1.5rem; }
+    .not-found h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--color-primary-dk);
+      margin-bottom: .75rem;
+    }
+    .not-found p {
+      color: var(--color-text-muted);
+      max-width: 420px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="index.html" class="site-logo">Dad's <span>Corner</span></a>
+        <button class="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main">
+    <div class="not-found">
+      <div class="not-found-emoji" aria-hidden="true">🔧</div>
+      <h1>Page Not Found</h1>
+      <p>Looks like this page wandered off into the workshop and hasn't come back yet. Let's get you back on track.</p>
+      <a href="index.html" class="btn btn-primary">← Back to Home</a>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">Dad's <span>Corner</span></a>
+          <p>A personal site about family, projects, and the everyday adventures of being a dad. Thanks for stopping by.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="#">Projects &amp; DIY</a></li>
+            <li><a href="#">Stories &amp; Memories</a></li>
+            <li><a href="#">Tips &amp; Advice</a></li>
+            <li><a href="#">Outdoors</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year">2026</span> Dad's Corner · <a href="https://www.dadscorner.net">dadscorner.net</a></p>
+        <p>Built with ♥ and too much coffee</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
