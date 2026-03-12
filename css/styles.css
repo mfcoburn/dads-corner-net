@@ -197,7 +197,7 @@ section { padding: 5rem 0; }
 
 /* ---- Hero ---- */
 .hero {
-  background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('../images/230333.png') center / cover no-repeat;
+  background: url('../images/230333.png') center / cover no-repeat;
   color: #fff;
   padding: 7rem 0 6rem;
   text-align: center;
@@ -206,7 +206,10 @@ section { padding: 5rem 0; }
 }
 
 .hero::before {
-  content: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
 }
 
 .hero-content { position: relative; z-index: 1; }
