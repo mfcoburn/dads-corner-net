@@ -416,6 +416,51 @@ section { padding: 5rem 0; }
 
 .posts-footer { text-align: center; margin-top: 3rem; }
 
+/* ---- Meeting Section ---- */
+.meeting { background: var(--color-bg); }
+
+.meeting-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--color-primary-dk);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+.meeting-icon {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.meeting-tag {
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-accent-lt);
+  margin-bottom: .75rem;
+}
+
+.meeting-body .section-title {
+  color: #fff;
+  display: block;
+  margin-bottom: 1.2rem;
+}
+
+.meeting-body .section-title::after {
+  background: var(--color-accent-lt);
+}
+
+.meeting-body p {
+  color: rgba(255,255,255,.85);
+  margin-bottom: 1rem;
+}
+
+.meeting-zoom-btn { margin-top: .5rem; }
+
 /* ---- Contact Section ---- */
 .contact-grid {
   display: grid;
@@ -637,6 +682,13 @@ section { padding: 5rem 0; }
   .site-header { position: relative; }
 
   .form-row { grid-template-columns: 1fr; }
+
+  .meeting-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
 
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
 
